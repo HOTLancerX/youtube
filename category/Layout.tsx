@@ -49,9 +49,9 @@ export default function YoutubeCategoryLayout({
     const breadcrumbLinks = ancestors.slice(0, -1);
 
     return (
-        <main className="bg-gray-50/40 min-h-screen space-y-6 pb-16">
+        <main className="min-h-screen space-y-6 pb-16">
             {/* YouTube Category Header Banner */}
-            <header className="bg-linear-to-r from-red-600 via-red-500 to-rose-600 py-10 text-white shadow-sm">
+            <header className="bg-main py-10 text-white shadow-sm">
                 <div className="container space-y-3">
                     {/* Breadcrumb */}
                     <nav

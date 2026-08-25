@@ -28,7 +28,7 @@ export const PLUGINS: PluginMeta = {
     description: "YouTube video importer, player, and 10 dynamic builder elements with custom category sorting and video cards.",
     author: "System",
     path: "https://github.com/HOTLancerX/youtube.git",
-    icon: "logos:youtube-icon",
+    icon: "akar-icons:youtube-fill",
     color: "from-red-500 to-rose-600",
 };
 
@@ -38,7 +38,7 @@ export function register() {
         {
             key: "youtube",
             label: "YouTube",
-            icon: "logos:youtube-icon",
+            icon: "akar-icons:youtube-fill",
             slug: "youtube/post",
             parent: "",
             position: 25,

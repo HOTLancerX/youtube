@@ -181,7 +181,7 @@ export default function YoutubeSettingsPage() {
     }
 
     return (
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="container space-y-6">
             {/* Header */}
             <div className="flex items-center justify-between pb-4 border-b border-gray-200">
                 <div className="flex items-center gap-3">
@@ -237,7 +237,7 @@ export default function YoutubeSettingsPage() {
                     </div>
 
                     {/* Keys list */}
-                    <div className="space-y-4">
+                    <div className="gap-4 grid grid-cols-1 md:grid-cols-2">
                         {keys.map((item, index) => (
                             <div
                                 key={item.id}

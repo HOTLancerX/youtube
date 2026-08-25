@@ -46,7 +46,6 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
     const rawYoutube = data.info?.youtube || data.info?.youtubeId || data.info?.youtubeUrl || "";
     const videoId = extractVideoId(rawYoutube);
     const thumbnail = getThumbnail(data.info, videoId);
-    const authorName = data.info?.author || data.info?.channelTitle || data.info?.userName || "YouTube Video";
 
     const formattedDate = data.createdAt
         ? new Date(data.createdAt).toLocaleDateString("en-US", {
@@ -60,7 +59,7 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
         return (
             <Link
                 href={postUrl}
-                className="group flex gap-3 p-2 rounded-xl hover:bg-gray-100/80 transition-colors"
+                className="group flex items-center gap-2 hover:bg-gray-100/80 transition-colors"
             >
                 {/* 16:9 Thumbnail preview on left */}
                 <div className="relative w-40 sm:w-44 aspect-video rounded-lg overflow-hidden bg-gray-900 shrink-0 border border-gray-200/80 shadow-2xs">
@@ -80,23 +79,11 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
                     {/* Center Play Icon */}
                     {videoId && (
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="w-8 h-8 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                            <div className="w-8 h-8 rounded-full bg-black/30 group-hover:bg-red-600/90 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
                                 <Icon icon="solar:play-bold" className="w-4 h-4 ml-0.5" />
                             </div>
                         </div>
                     )}
-
-                    {/* YouTube badge or duration overlay */}
-                    <div className="absolute bottom-1.5 right-1.5 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-bold flex items-center gap-1">
-                        {videoId ? (
-                            <>
-                                <Icon icon="akar-icons:youtube-fill" className="text-red-500 w-3 h-3" />
-                                <span>VIDEO</span>
-                            </>
-                        ) : (
-                            <span>ARTICLE</span>
-                        )}
-                    </div>
                 </div>
 
                 {/* Video Info on right */}
@@ -104,7 +91,6 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
                     <h3 className="text-xs sm:text-sm font-bold text-gray-900 group-hover:text-red-600 line-clamp-2 leading-snug transition-colors">
                         {data.title}
                     </h3>
-                    <div className="text-[11px] text-gray-500 mt-1 truncate">{authorName}</div>
                     {formattedDate && (
                         <div className="text-[10px] text-gray-400 mt-0.5 flex items-center gap-1">
                             <span>{formattedDate}</span>
@@ -118,7 +104,7 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
     return (
         <Link
             href={postUrl}
-            className="group flex flex-col gap-2 p-2 rounded-xl hover:bg-gray-100/80 transition-colors"
+            className="group flex items-center flex-col gap-2 hover:bg-gray-100/80 transition-colors"
         >
             <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-900 border border-gray-200/80 shadow-2xs">
                 {thumbnail ? (
@@ -134,23 +120,12 @@ export default function VideoCard({ data, postUrl, horizontal = true }: VideoCar
                         <Icon icon="akar-icons:youtube-fill" className="w-10 h-10" />
                     </div>
                 )}
-                <div className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-black/80 text-white text-[10px] font-bold flex items-center gap-1">
-                    {videoId ? (
-                        <>
-                            <Icon icon="akar-icons:youtube-fill" className="text-red-500 w-3 h-3" />
-                            <span>VIDEO</span>
-                        </>
-                    ) : (
-                        <span>ARTICLE</span>
-                    )}
-                </div>
             </div>
 
             <div className="pt-1">
                 <h3 className="text-sm font-bold text-gray-900 group-hover:text-red-600 line-clamp-2 leading-snug transition-colors">
                     {data.title}
                 </h3>
-                <div className="text-xs text-gray-500 mt-1">{authorName}</div>
                 {formattedDate && <div className="text-[11px] text-gray-400 mt-0.5">{formattedDate}</div>}
             </div>
         </Link>

@@ -74,7 +74,7 @@ export default function YoutubeBlogLayout({
     const featuredImage = getImage(data.info);
 
     return (
-        <main className="min-h-screen pb-16 space-y-6 bg-gray-50/40">
+        <main className="min-h-screen pb-16 space-y-6">
             {/* Single Page Top Ads */}
             <Ads type="single" slot="top" settings={settings} />
 
@@ -155,13 +155,13 @@ export default function YoutubeBlogLayout({
                             {/* Single Page Right Top Ads */}
                             <Ads type="single" slot="rightTop" settings={settings} />
 
-                            <div className="bg-white rounded-2xl border border-gray-100 p-4 shadow-xs">
+                            <>
                                 <YoutubeRelated
                                     posts={relatedPosts}
                                     postPrefix={postPrefix}
                                     currentPostId={data._id}
                                 />
-                            </div>
+                            </>
 
                             {/* Single Page Right Bottom Ads */}
                             <Ads type="single" slot="rightBottom" settings={settings} />

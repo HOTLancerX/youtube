@@ -74,7 +74,7 @@ export default function YoutubeRelated({ posts = [], postPrefix, currentPostId }
             </div>
 
             {/* Video List (YouTube right-side format) */}
-            <div className="space-y-1 divide-y divide-gray-50">
+            <div className="space-y-3 divide-y divide-gray-50">
                 {filteredList.map((post) => (
                     <VideoCard
                         key={post._id}
